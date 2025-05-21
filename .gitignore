@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Data & artifacts
+/data/raw/
+/data/processed/
+/src/models/artifacts/
+/mlruns/
+/.env
+
+# VSCode / OS
+.vscode/
+.DS_Store

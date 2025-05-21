@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+streamlit
+pandas
+numpy
+scikit-learn
+statsmodels
+pydantic
+kaggle
+requests
+python-dotenv
+pytest
+xlrd>=2.0.1
+xgboost
+mlflow
+

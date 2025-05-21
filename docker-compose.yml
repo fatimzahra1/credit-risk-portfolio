@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  api:
+    build: .
+    environment:
+      - SERVICE=api
+      - PORT=8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+
+  ui:
+    build: .
+    environment:
+      - SERVICE=ui
+      - PORT=8501
+      - API_URL=http://api:8000
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    depends_on:
+      - api
