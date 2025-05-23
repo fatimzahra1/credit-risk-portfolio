@@ -1,6 +1,5 @@
 name: Scheduled Model Retrain
 
-# Triggers: weekly and on-demand
 on:
   schedule:
     - cron:  '0 3 * * 0'     # every Sunday at 03:00 UTC
@@ -26,9 +25,10 @@ jobs:
 
       - name: Run data ingest & process
         run: |
-          python src/ingest/download_default_clients.py
-          python src/ingest/fetch_macro.py
-          python src/ingest/process_data.py
+          python -m src.ingest.download_default_clients
+          python -m src.ingest.fetch_macro
+          python -m src.ingest.process_data
+
 
       - name: Retrain models & log to MLflow
         run: python -m src.models.train

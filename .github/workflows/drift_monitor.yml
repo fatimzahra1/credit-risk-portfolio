@@ -20,4 +20,4 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run drift monitor
-        run: python src/monitor/drift_monitor.py
+        run: python -m src.monitor.drift_monitor
