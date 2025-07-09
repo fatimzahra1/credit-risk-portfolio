@@ -4,7 +4,8 @@ from src.models.utils import load_model
 from src.features.make_features import generate_features
 
 def monitor_drift(horizon: int = 6):
-    df = pd.read_csv('data/processed/portfolio_df.csv', parse_dates=['timestamp'], index_col='timestamp')
+    df = pd.read_csv('data/processed/portfolio_df.csv', parse_dates=['timestamp'] ,
+    date_parser=lambda x: pd.to_datetime(x, format="%Y-%m-%d %H:%M:%S"), index_col='timestamp')
 
     arima = load_model('arima')
     hist = df['default_rate']
